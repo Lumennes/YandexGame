@@ -72,16 +72,16 @@ jobs:
       ###########################
       #          Build          #
       ###########################
-      # - uses: game-ci/unity-builder@v2
-        # with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          # buildName: ${{ matrix.projectName }}
-          # targetPlatform: ${{ matrix.targetPlatform }}
-          buildMethod: UnityBuilderAction.BuildScript.Build
-          customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
-          cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
-          # allowDirtyBuild: true
+      - uses: game-ci/unity-builder@v2
+        with:
+          # projectPath: ${{ matrix.projectPath }}
+          # unityVersion: ${{ matrix.unityVersion }}
+          buildName: ${{ matrix.projectName }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          # buildMethod: UnityBuilderAction.BuildScript.Build
+          # customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
+          # cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
+          allowDirtyBuild: true
 
       ###########################
       #          Upload         #
@@ -94,7 +94,7 @@ jobs:
           
       - uses: Difegue/action-megacmd@master
         with:
-          args: put -c . /Unity_projects/${{ matrix.projectName }}/${{ matrix.projectName }}_${{ matrix.targetPlatform }}/
+          args: put -c build/${{ matrix.targetPlatform }} /Unity_projects/${{ matrix.projectName }}/${{ matrix.projectName }}_${{ matrix.targetPlatform }}/
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}
