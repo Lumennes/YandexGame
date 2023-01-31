@@ -72,16 +72,16 @@ jobs:
       ###########################
       #          Build          #
       ###########################
-      - uses: game-ci/unity-builder@v2
-        with:
-          # projectPath: ${{ matrix.projectPath }}
-          # unityVersion: ${{ matrix.unityVersion }}
-          buildName: ${{ matrix.projectName }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-          # buildMethod: UnityBuilderAction.BuildScript.Build
-          # customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
-          # cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
-          allowDirtyBuild: true
+      # - uses: game-ci/unity-builder@v2
+        # with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          # buildName: ${{ matrix.projectName }}
+          # targetPlatform: ${{ matrix.targetPlatform }}
+          buildMethod: UnityBuilderAction.BuildScript.Build
+          customParameters: -profile SomeProfile -someBoolean -someValue exampleValue
+          cloudRunnerCluster: ${{ matrix.cloudRunnerCluster }}
+          # allowDirtyBuild: true
 
       ###########################
       #          Upload         #
