@@ -75,7 +75,7 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           # projectPath: ${{ matrix.projectPath }}
-          # unityVersion: ${{ matrix.unityVersion }}
+          unityVersion: ${{ matrix.unityVersion }}
           buildName: ${{ matrix.projectName }}
           targetPlatform: ${{ matrix.targetPlatform }}
           # buildMethod: UnityBuilderAction.BuildScript.Build
