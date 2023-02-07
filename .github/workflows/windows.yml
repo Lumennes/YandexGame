@@ -11,7 +11,7 @@ env:
 jobs:
   buildForAllPlatformsUbuntu:
     name: ${{ matrix.targetPlatform }} (${{ matrix.unityVersion }})
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     strategy:
       fail-fast: false
       matrix:
@@ -23,16 +23,16 @@ jobs:
         #projectPath:
         #  - test-project
         unityVersion:
-          - 2021.3.17f1   
+          # - 2021.3.17f1   
           - 2022.2.5f1           
         targetPlatform:
-          - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
+          # - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
-          - StandaloneLinux64 # Build a Linux 64-bit standalone.
-          - iOS # Build an iOS player.
-          - Android # Build an Android .apk.
-          - WebGL # WebGL.
-          - StandaloneWindows # Build a Windows standalone.
+          # - StandaloneLinux64 # Build a Linux 64-bit standalone.
+          # - iOS # Build an iOS player.
+          # - Android # Build an Android .apk.
+          # - WebGL # WebGL.
+          # - StandaloneWindows # Build a Windows standalone.
           # - WSAPlayer # Build an Windows Store Apps player. на винде
           # - PS4 # Build a PS4 Standalone. // тож не выйдет
           # - XboxOne # Build a Xbox One Standalone. // тож не выйдет
@@ -61,6 +61,13 @@ jobs:
             Library-${{ matrix.targetPlatform }}-
             Library-
             
+      ###########################
+      #  Set Scripting Backend  #
+      ###########################
+      - name: Set Scripting Backend To il2cpp
+        run: |
+          Move-Item -Path "./ProjectSettings/ProjectSettingsIl2cpp.asset" -Destination "./ProjectSettings/ProjectSettings.asset" -Force
+            
       # - uses: actions/cache@v3
         # with:
           # path: Build
@@ -87,18 +94,18 @@ jobs:
       ###########################
       #          Upload         #
       ###########################
-      # - uses: actions/upload-artifact@v2
-        # with:
-          # name: Build
-          # path: build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.projectName }}_${{ matrix.targetPlatform }}_${{ matrix.unityVersion }}
+          path: build/${{ matrix.targetPlatform }}
           # retention-days: 14
           
-      - uses: Difegue/action-megacmd@master
-        with:
-          args: put -c build/${{ matrix.targetPlatform }} /Unity_projects/${{ matrix.projectName }}/2/${{ matrix.projectName }}_${{ matrix.targetPlatform }}_${{ matrix.unityVersion }}/
-        env:
-          USERNAME: ${{ secrets.MEGA_USERNAME }}
-          PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+      # - uses: Difegue/action-megacmd@master
+        # with:
+          # args: put -c build/${{ matrix.targetPlatform }} /Unity_projects/${{ matrix.projectName }}/windows-2019/${{ matrix.projectName }}_${{ matrix.targetPlatform }}_${{ matrix.unityVersion }}/
+        # env:
+          # USERNAME: ${{ secrets.MEGA_USERNAME }}
+          # PASSWORD: ${{ secrets.MEGA_PASSWORD }}
           
       # - uses: mkrakowitzer/actions-googledrive@master
         # with:
