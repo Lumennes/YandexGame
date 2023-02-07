@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
 
 namespace YG.Example
 {
     public class SwitchSceneTest : MonoBehaviour
     {
-        public void SwitchScene(int sceneID)
+        public void SwitchScene(string sceneID)
         {
-            SceneManager.LoadScene(sceneID);
+            // SceneManager.LoadScene(sceneID);
+            Addressables.LoadSceneAsync(sceneID);
         }
     }
 }

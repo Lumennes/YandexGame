@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bb8aa5f550e02ed4bb4de2b4b2a6a05c
+  m_SerializeEntries:
+  - m_GUID: 691d16156d304ef488f0bee1744f4e27
+    m_Address: Assets/PolygonAncientEmpire/Scenes/Demo_Scene_01.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7c3f86e2ed351fa4a9145ca097edf146, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 178828acd62efdc429bc06855c5433d3, type: 2}
+    - {fileID: 11400000, guid: 781baaf4ce543f84d89e84e066740088, type: 2}

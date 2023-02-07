@@ -1285,9 +1285,10 @@ namespace YG
 
         #region Update
         int delayFirstCalls = -1;
-        static float timerShowAd;
+        static float timerShowAd;        
+#if !UNITY_EDITOR
         static float timerSaveCloud = 62;
-
+#endif
         private void Update()
         {
             // Таймер для обработки показа Fillscreen рекламы

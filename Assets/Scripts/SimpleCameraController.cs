@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 #endif
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UnityTemplateProjects
 {
@@ -165,16 +166,40 @@ namespace UnityTemplateProjects
             return direction;
         }
 
+        int oldWidth = 638;
+        int oldHeight = 460;
+
         void Update()
         {
             // Exit Sample
 
             if (IsEscapePressed())
             {
-                Application.Quit();
+                SceneManager.LoadScene(0);
+/*                 Application.Quit();
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
-#endif
+#endif */
+            }
+
+            if(IsFullscreenPressed())
+            {
+
+
+                //Screen.fullScreen = !Screen.fullScreen;
+
+                if(Screen.fullScreen)
+                {
+                    Screen.SetResolution(oldWidth, oldHeight, false);
+                }
+                else
+                {
+                    oldWidth = Screen.width;
+                    oldHeight = Screen.height;
+                    var width = Screen.mainWindowDisplayInfo.width;
+                    var height = Screen.mainWindowDisplayInfo.height;
+                    Screen.SetResolution(width, height, true);
+                }
             }
 
             // Hide and lock cursor when right mouse button pressed
@@ -266,6 +291,16 @@ namespace UnityTemplateProjects
             return Keyboard.current != null ? Keyboard.current.escapeKey.isPressed : false;
 #else
             return Input.GetKey(KeyCode.Escape);
+#endif
+        }
+
+        
+        bool IsFullscreenPressed()
+        {
+#if ENABLE_INPUT_SYSTEM
+            return Keyboard.current != null ? Keyboard.current.fullscreen.isPressed : false;
+#else
+            return Input.GetKeyDown(KeyCode.F11);
 #endif
         }
 
