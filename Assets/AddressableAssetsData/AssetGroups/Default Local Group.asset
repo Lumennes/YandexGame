@@ -21,6 +21,7 @@ MonoBehaviour:
     m_Address: Assets/PolygonAncientEmpire/Scenes/Demo_Scene_01.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7c3f86e2ed351fa4a9145ca097edf146, type: 2}
   m_SchemaSet:
