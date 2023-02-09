@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: bb8aa5f550e02ed4bb4de2b4b2a6a05c
-  m_SerializeEntries:
-  - m_GUID: 691d16156d304ef488f0bee1744f4e27
-    m_Address: Assets/PolygonAncientEmpire/Scenes/Demo_Scene_01.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7c3f86e2ed351fa4a9145ca097edf146, type: 2}
   m_SchemaSet:
